@@ -1,20 +1,34 @@
+import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:money_expert/Configurations/configurations.dart';
+import 'Services/crashlytics_service.dart';
+import 'Services/loading_service.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
-  EasyLocalization(
-    supportedLocales: const [Locale('en'), Locale('ar')],
-    path: 'assets/translations',
-    saveLocale: false,
-    startLocale: const Locale('ar'),
-    fallbackLocale: const Locale('ar'),
-    child: const MyApp(),
-  );
+  runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await EasyLocalization.ensureInitialized();
+    await Firebase.initializeApp();
+    CrashlyticsService.initCrashlytics();
+    runApp(
+      EasyLocalization(
+        supportedLocales: const [Locale('en'), Locale('ar')],
+        path: 'assets/translations',
+        saveLocale: false,
+        startLocale: const Locale('en'),
+        fallbackLocale: const Locale('en'),
+        child: const MyApp(),
+      ),
+    );
+    configLoading();
+  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
 }
 
 class MyApp extends StatefulWidget {
@@ -27,21 +41,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  checkInternet() async {
-    if (await Internet.hasConnection() == ConnectionStatus.noConnection) {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (ctx) => const Scaffold()));
-    }
-    await Future.delayed(const Duration(seconds: 1), checkInternet);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    // Future.delayed(const Duration(seconds: 1), checkInternet);
-  }
-
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -73,4 +72,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-

@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:money_expert/Pages/Splash/splash_viewmodel.dart';
 import 'package:pmvvm/pmvvm.dart';
 
