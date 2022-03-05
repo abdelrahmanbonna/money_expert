@@ -1,3 +1,26 @@
 {
-    "app_title":"خبير المال"
+    "app_title":"خبير المال",
+    "all_rights_reserved":"جميع الحقوق محفوظة لAB solutions",
+    "landing_screen":{
+        "login":"تسجيل الدخول",
+        "sign_up":"تسجيل حساب جديد"
+    },
+    "login_screen":{
+        "email":"البريد الالكتروني",
+        "passowrd":"كلمة السر",
+        "forgetpassword":"نسيت كلمة السر؟",
+        "login":"تسجيل الدخول"
+    },
+    "sign_up_screen":{
+        "sign_up":"تسجيل حساب جديد",
+        "email":"البريد الالكتروني",
+        "password":"كلمة السر",
+        "user_name":"اسم المستخدم"
+    },
+    "forget_password_screen":{
+        "email":"البريد الالكتروني",
+        "hint_text":"قم بادخال البريد الالكتروني الخاص بك و سيصلك رسالة بكلمة المرور الجديدة",
+        "reset_password":"اعادة تعيين كلمة المرور"
+
+    }
 }

@@ -1,3 +1,25 @@
 {
-    "app_title":"Money Expert"
+    "app_title":"Money Expert",
+    "all_rights_reserved":"All rights reserved to AB solutions",
+    "landing_screen":{
+        "login":"Login",
+        "sign_up":"Sign Up"
+    },
+    "login_screen":{
+        "email":"E-mail",
+        "password":"Password",
+        "forgetpassword":"Forgot your password?",
+        "login":"Login"
+    },
+    "sign_up_screen":{
+        "sign_up":"Sign Up",
+        "email":"E-mail",
+        "password":"Password",
+        "user_name":"Username"
+    },
+    "forget_password_screen":{
+        "email":"E-mail",
+        "hint_text":"Enter your email and you will receive a message with your new password",
+        "reset_password":"Reset Password"
+    }
 }

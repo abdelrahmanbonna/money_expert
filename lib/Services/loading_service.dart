@@ -3,14 +3,12 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void configLoading(){
     EasyLoading.instance
-    ..indicatorType = EasyLoadingIndicatorType.circle
+    ..indicatorType = EasyLoadingIndicatorType.fadingCircle
     ..loadingStyle = EasyLoadingStyle.custom
     ..indicatorSize = 45.0
     ..radius = 10.0
     ..maskType = EasyLoadingMaskType.black
-    ..backgroundColor = Colors.white
-    ..textColor = Colors.white
-    ..indicatorColor = Colors.green[800]
+    ..indicatorColor = const Color.fromARGB(255, 139, 195, 74)
     ..userInteractions = false
     ..dismissOnTap = false;
 }

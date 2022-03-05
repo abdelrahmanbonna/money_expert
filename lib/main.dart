@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:money_expert/Configurations/configurations.dart';
+import 'package:theme_manager/theme_manager.dart';
 import 'Services/crashlytics_service.dart';
 import 'Services/loading_service.dart';
 
@@ -53,22 +54,67 @@ class _MyAppState extends State<MyApp> {
         statusBarBrightness: Brightness.light,
       ),
     );
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      navigatorKey: navigatorKey,
-      debugShowCheckedModeBanner: false,
-      initialRoute: PageRouteName.initial,
-      onGenerateRoute: Routes.generateRoute,
-      builder: EasyLoading.init(
-        builder: (context, child) => MediaQuery(
-          data: MediaQuery.of(context).copyWith(
-            textScaleFactor: 1.0,
+    return ThemeManager(
+      loadBrightnessOnStart: true,
+      defaultBrightnessPreference: BrightnessPreference.system,
+      themedWidgetBuilder: (
+        BuildContext context,
+        ThemeData theme,
+      ) =>
+          MaterialApp(
+        theme: theme,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        navigatorKey: navigatorKey,
+        debugShowCheckedModeBanner: false,
+        initialRoute: PageRouteName.initial,
+        onGenerateRoute: Routes.generateRoute,
+        builder: EasyLoading.init(
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaleFactor: 1.0,
+            ),
+            child: child ?? const Scaffold(),
           ),
-          child: child ?? const Scaffold(),
         ),
       ),
+      data: (Brightness brightness) {
+        switch (brightness) {
+          case Brightness.light:
+            return ThemeData(
+              primaryColor: const Color.fromARGB(255, 116, 74, 195),
+              backgroundColor: Colors.grey[300],
+              primarySwatch: Constants.createMaterialColor(
+                const Color.fromARGB(255, 116, 74, 195),
+              ),
+              scaffoldBackgroundColor: Colors.grey[300],
+              shadowColor: const Color.fromARGB(255, 255, 255, 255),
+              brightness: brightness,
+            );
+          case Brightness.dark:
+            return ThemeData(
+              primaryColor: const Color.fromARGB(255, 116, 74, 195),
+              primarySwatch: Constants.createMaterialColor(
+                const Color.fromARGB(255, 116, 74, 195),
+              ),
+              backgroundColor: const Color.fromARGB(255, 43, 43, 43),
+              scaffoldBackgroundColor: Colors.grey[800],
+              shadowColor: const Color.fromARGB(255, 43, 43, 43),
+              brightness: brightness,
+            );
+          default:
+            return ThemeData(
+              primaryColor: const Color.fromARGB(255, 116, 74, 195),
+              backgroundColor: Colors.grey[300],
+              primarySwatch: Constants.createMaterialColor(
+                const Color.fromARGB(255, 116, 74, 195),
+              ),
+              scaffoldBackgroundColor: Colors.grey[300],
+              brightness: brightness,
+            );
+        }
+      },
     );
   }
 }

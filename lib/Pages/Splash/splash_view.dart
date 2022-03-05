@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:money_expert/Pages/Splash/splash_viewmodel.dart';
 import 'package:pmvvm/pmvvm.dart';
 
@@ -21,23 +23,28 @@ class SplashView extends HookView<SplashViewModel> {
   @override
   Widget render(BuildContext context, SplashViewModel viewModel) {
     var mediaQuery = MediaQuery.of(context);
+    var theme = Theme.of(context);
     return Scaffold(
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             width: mediaQuery.size.width,
             height: mediaQuery.size.height,
-            decoration: const BoxDecoration(
-              color: Colors.lightGreen,
-            ),
-            child: Text(
-              'app_title'.tr(),
-              // style: GoogleFonts.lato(
-              //   textStyle: Theme.of(context).textTheme.headline4,
-              //   fontSize: 48,
-              //   fontWeight: FontWeight.w700,
-              //   fontStyle: FontStyle.italic,
-              // ),
+            child: Center(
+              child: FadeIn(
+                child: Text(
+                  'app_title'.tr(),
+                  style: GoogleFonts.lato(
+                    textStyle: theme.textTheme.headline4,
+                    fontSize: 48,
+                    fontWeight: FontWeight.w700,
+                    fontStyle: FontStyle.italic,
+                    color: theme.primaryColor,
+                  ),
+                ),
+                duration: const Duration(seconds: 2),
+                curve: Curves.easeIn,
+              ),
             ),
           ),
         ],
