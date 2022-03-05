@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1051786215635",
+    "project_id": "financial-hub-c58b4",
+    "storage_bucket": "financial-hub-c58b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051786215635:android:50e66176fc5fbb25491426",
+        "android_client_info": {
+          "package_name": "com.absolutions.money_expert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051786215635-dope9bugsjfu22f6eqfdiufaou7u9o0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.absolutions.money_expert",
+            "certificate_hash": "f9e287071ab468b5f6a0b132fe11100363ee33d6"
+          }
+        },
+        {
+          "client_id": "1051786215635-1ko0f3n0fhih4r10obgbmol208479mcm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ2gVpeTI7IeYg4ghq8fQLoJKS1iJODaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051786215635-1ko0f3n0fhih4r10obgbmol208479mcm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
