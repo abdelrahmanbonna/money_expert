@@ -9,7 +9,7 @@ This project is a money management app for Android and IOS.
 - TODO:
   - Make Auth (Login, Forgetpassword, and Signup) pages. [X]
   - Make login with email and password. [ ]
-  - Make Splash screen with animations. [ ]
+  - Make Splash screen with animations. [X]
   - Make Home page with financial info. [ ]
   - Make Web service with HTTP package. [ ]
   - Make Firebase firestore service. [ ]
