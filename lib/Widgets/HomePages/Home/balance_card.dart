@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
-class BalanceCard extends StatefulWidget {
+class BalanceCard extends StatelessWidget {
   final double balance;
   const BalanceCard({Key? key, required this.balance}) : super(key: key);
 
-  @override
-  _BalanceCardState createState() => _BalanceCardState();
-}
-
-class _BalanceCardState extends State<BalanceCard> {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
