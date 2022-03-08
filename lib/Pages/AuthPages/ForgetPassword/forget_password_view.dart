@@ -16,7 +16,7 @@ class ForgetPassword extends StatelessWidget {
       final args = ModalRoute.of(context)!.settings.arguments as List;
 
     return MVVM(
-      view: (_, __) =>  ForgetPasswordView(titleTag: args[0].toString(),),
+      view: () =>  ForgetPasswordView(titleTag: args[0].toString(),),
       viewModel: ForgetPasswordViewModel(),
     );
   }

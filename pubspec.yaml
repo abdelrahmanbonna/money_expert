@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   shimmer: ^2.0.0
-  pmvvm: ^2.0.1
+  pmvvm: ^3.0.0
   lints: ^1.0.1
   percent_indicator: ^3.0.1
   shared_preferences: ^2.0.6

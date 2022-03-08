@@ -94,9 +94,9 @@ class _MyAppState extends State<MyApp> {
             );
           case Brightness.dark:
             return ThemeData(
-              primaryColor: const Color.fromARGB(255, 116, 74, 195),
+              primaryColor: const Color.fromARGB(255, 183, 144, 255),
               primarySwatch: Constants.createMaterialColor(
-                const Color.fromARGB(255, 116, 74, 195),
+                const Color.fromARGB(255, 183, 144, 255),
               ),
               backgroundColor: const Color.fromARGB(255, 43, 43, 43),
               scaffoldBackgroundColor: Colors.grey[800],

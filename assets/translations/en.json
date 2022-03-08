@@ -21,5 +21,10 @@
         "email":"E-mail",
         "hint_text":"Enter your email and you will receive a message with your new password",
         "reset_password":"Reset Password"
+    },
+    "home_screen":{
+        "welcome":"Welcome,",
+        "add_new_transaction":"Add new transaction"
+        
     }
 }

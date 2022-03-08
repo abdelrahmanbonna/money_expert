@@ -21,6 +21,9 @@ class Routes {
       case PageRouteName.forgetPassword:
         return MaterialPageRoute<dynamic>(
             builder: (_) => const ForgetPassword(), settings: settings);
+      case PageRouteName.home:
+        return MaterialPageRoute<dynamic>(
+            builder: (_) => const Home(), settings: settings);
       default:
         return MaterialPageRoute<dynamic>(
             builder: (_) => const Splash(), settings: settings);

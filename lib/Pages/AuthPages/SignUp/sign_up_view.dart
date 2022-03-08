@@ -18,7 +18,7 @@ class SignUp extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as List;
 
     return MVVM(
-      view: (_, __) => SignUpView(
+      view: () => SignUpView(
         titleTag: args[0].toString(),
       ),
       viewModel: SignUpViewModel(),

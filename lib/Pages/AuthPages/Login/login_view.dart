@@ -18,7 +18,7 @@ class Login extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as List;
 
     return MVVM(
-      view: (_, __) => LoginView(
+      view: () => LoginView(
         titleTag: args[0].toString(),
       ),
       viewModel: LoginViewModel(),
@@ -104,7 +104,10 @@ class LoginView extends HookView<LoginViewModel> {
       floatingActionButton: RaisedRoundedButton(
         width: mediaQuery.size.width * 0.9,
         title: 'login_screen.login'.tr(),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil(PageRouteName.home, (route) => false);
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

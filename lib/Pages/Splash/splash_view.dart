@@ -11,7 +11,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MVVM(
-      view: (_, __) => const SplashView(),
+      view: () => const SplashView(),
       viewModel: SplashViewModel(),
     );
   }

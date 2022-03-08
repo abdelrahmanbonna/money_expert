@@ -14,7 +14,7 @@ class Landing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MVVM(
-      view: (_, __) => const LandingView(),
+      view: () => const LandingView(),
       viewModel: LandingViewModel(),
     );
   }
