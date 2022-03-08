@@ -1,10 +1,8 @@
 # money_expert
 
-A new Flutter project.
+This project is a money management app for Android and IOS. Will provide users with money managment in every aspect of life.
 
 ## Getting Started
-
-This project is a money management app for Android and IOS.
 
 - Sprint 1 TODO:
   - Make Auth (Login, Forgetpassword, and Signup) pages. [X]
