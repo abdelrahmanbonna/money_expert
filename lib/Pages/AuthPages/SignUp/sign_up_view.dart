@@ -90,10 +90,7 @@ class SignUpView extends HookView<SignUpViewModel> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: RaisedRoundedButton(
         title: 'sign_up_screen.sign_up'.tr(),
-        onTap: () =>
-            Navigator.of(context).pushNamed(PageRouteName.signUp, arguments: [
-          titleTag,
-        ]),
+        onTap: () => Navigator.of(context).pop(),
       ).setHorizontalAndVerticalPadding(context, 0.0427, 0),
     );
   }
