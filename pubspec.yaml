@@ -28,6 +28,7 @@ dependencies:
   flutter_fadein: ^2.0.0
   day_night_switcher: ^0.2.0+1
   theme_manager: ^1.0.4
+  skeletons: ^0.0.3
 
 dev_dependencies:
   flutter_test:

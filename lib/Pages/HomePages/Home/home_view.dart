@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:money_expert/Pages/HomePages/Home/home_viewmodel.dart';
+import 'package:money_expert/Widgets/HomePages/Home/balance_card.dart';
 import 'package:money_expert/Widgets/HomePages/Home/welcome_card.dart';
 import 'package:pmvvm/pmvvm.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -61,7 +62,9 @@ class HomeView extends HookView<HomeViewModel> {
                     ],
                   ),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      //TODO open a navbar
+                    },
                     child: Icon(
                       FontAwesomeIcons.ellipsisV,
                       color: theme.primaryColor.withOpacity(0.7),
@@ -70,14 +73,20 @@ class HomeView extends HookView<HomeViewModel> {
                 ),
               ],
             ).setOnlyPadding(context, 0, 0.01, 0.0427, 0.0427),
-            const WelcomeCard(
-              username: 'Abdelrahman Bonna',
+            WelcomeCard(
+              username: viewModel.username,
+              loaded: viewModel.userDataloaded,
+            ).setOnlyPadding(context, 0, 0.01, 0.0, 0.0),
+            BalanceCard(
+              balance: viewModel.balance,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          //TODO add a new transaction
+        },
         clipBehavior: Clip.antiAlias,
         backgroundColor: theme.primaryColor,
         tooltip: 'home_screen.add_new_transaction'.tr(),

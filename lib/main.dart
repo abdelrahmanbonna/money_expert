@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:money_expert/Configurations/configurations.dart';
+import 'package:skeletons/skeletons.dart';
 import 'package:theme_manager/theme_manager.dart';
 import 'Services/crashlytics_service.dart';
 import 'Services/loading_service.dart';
@@ -61,21 +62,24 @@ class _MyAppState extends State<MyApp> {
         BuildContext context,
         ThemeData theme,
       ) =>
-          MaterialApp(
-        theme: theme,
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        navigatorKey: navigatorKey,
-        debugShowCheckedModeBanner: false,
-        initialRoute: PageRouteName.initial,
-        onGenerateRoute: Routes.generateRoute,
-        builder: EasyLoading.init(
-          builder: (context, child) => MediaQuery(
-            data: MediaQuery.of(context).copyWith(
-              textScaleFactor: 1.0,
+          SkeletonTheme(
+        themeMode: theme == ThemeData.dark() ? ThemeMode.dark : ThemeMode.light,
+        child: MaterialApp(
+          theme: theme,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          navigatorKey: navigatorKey,
+          debugShowCheckedModeBanner: false,
+          initialRoute: PageRouteName.initial,
+          onGenerateRoute: Routes.generateRoute,
+          builder: EasyLoading.init(
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaleFactor: 1.0,
+              ),
+              child: child ?? const Scaffold(),
             ),
-            child: child ?? const Scaffold(),
           ),
         ),
       ),
