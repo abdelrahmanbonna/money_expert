@@ -34,6 +34,11 @@ class BalanceCard extends StatelessWidget {
           ),
         ],
       ),
+      child: Row(
+        children: const [
+          //TODO add cash balance and bank balance
+        ],
+      ),
     );
   }
 }
