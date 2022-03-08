@@ -68,7 +68,25 @@ class LandingView extends HookView<LandingViewModel> {
                 onStateChanged: (isDarkModeEnabled) {
                   viewModel.setDarkMode(isDarkModeEnabled);
                 },
-              ),
+              ).setOnlyPadding(context, 0, 0, 0.1, 0),
+              DropdownButton<String>(
+                borderRadius: BorderRadius.circular(10),
+                dropdownColor: theme.scaffoldBackgroundColor,
+                items: const [
+                  DropdownMenuItem(
+                    child: Text('English'),
+                    value: 'en',
+                  ),
+                  DropdownMenuItem(
+                    child: Text('العربية'),
+                    value: 'ar',
+                  ),
+                ],
+                value: context.locale.toString(),
+                onChanged: (lng) {
+                  context.setLocale(Locale(lng ?? 'en'));
+                },
+              )
             ],
           ).setOnlyPadding(context, 0.03, 0.02, 0.0427, 0.0427),
           Text(

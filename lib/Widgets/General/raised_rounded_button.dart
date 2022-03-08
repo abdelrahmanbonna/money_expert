@@ -23,7 +23,7 @@ class RaisedRoundedButton extends StatelessWidget {
         height: mediaQuery.size.height * 0.065,
         decoration: BoxDecoration(
           color: theme.primaryColor,
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
               color: Colors.grey[600]!,

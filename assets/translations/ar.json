@@ -7,7 +7,7 @@
     },
     "login_screen":{
         "email":"البريد الالكتروني",
-        "passowrd":"كلمة السر",
+        "password":"كلمة السر",
         "forgetpassword":"نسيت كلمة السر؟",
         "login":"تسجيل الدخول"
     },
