@@ -46,7 +46,9 @@ class RaisedRoundedButton extends StatelessWidget {
               color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              textStyle: theme.textTheme.button,
+              textStyle: theme.textTheme.button!.copyWith(
+                wordSpacing: 3,
+              ),
             ),
           ),
         ),
