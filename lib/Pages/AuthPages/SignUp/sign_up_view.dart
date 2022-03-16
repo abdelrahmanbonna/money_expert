@@ -6,7 +6,6 @@ import 'package:money_expert/Widgets/General/raised_textfield.dart';
 import 'package:money_expert/extensions/extensions.dart';
 import 'package:pmvvm/pmvvm.dart';
 
-import '../../../Configurations/page_route_names.dart';
 import '../../../Widgets/General/raised_rounded_button.dart';
 import 'sign_up_viewmodel.dart';
 
@@ -47,7 +46,7 @@ class SignUpView extends HookView<SignUpViewModel> {
               child: Text(
                 'app_title'.tr(),
                 textAlign: TextAlign.center,
-                style: GoogleFonts.lato(
+                style: GoogleFonts.ubuntu(
                   textStyle: theme.textTheme.headline4,
                   fontSize: 48,
                   fontWeight: FontWeight.w700,

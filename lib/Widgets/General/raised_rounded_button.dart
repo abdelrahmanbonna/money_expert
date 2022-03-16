@@ -42,7 +42,7 @@ class RaisedRoundedButton extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: GoogleFonts.lato(
+            style: GoogleFonts.ubuntu(
               color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.bold,

@@ -13,18 +13,21 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      final args = ModalRoute.of(context)!.settings.arguments as List;
+    final args = ModalRoute.of(context)!.settings.arguments as List;
 
     return MVVM(
-      view: () =>  ForgetPasswordView(titleTag: args[0].toString(),),
+      view: () => ForgetPasswordView(
+        titleTag: args[0].toString(),
+      ),
       viewModel: ForgetPasswordViewModel(),
     );
   }
 }
 
 class ForgetPasswordView extends HookView<ForgetPasswordViewModel> {
- final String titleTag;
-  const ForgetPasswordView({Key? key,required this.titleTag}) : super(key: key);
+  final String titleTag;
+  const ForgetPasswordView({Key? key, required this.titleTag})
+      : super(key: key);
 
   @override
   Widget render(BuildContext context, ForgetPasswordViewModel viewModel) {
@@ -40,7 +43,7 @@ class ForgetPasswordView extends HookView<ForgetPasswordViewModel> {
             tag: titleTag,
             child: Text(
               'app_title'.tr(),
-              style: GoogleFonts.lato(
+              style: GoogleFonts.ubuntu(
                 textStyle: theme.textTheme.headline4,
                 fontSize: 48,
                 fontWeight: FontWeight.w700,
@@ -52,7 +55,7 @@ class ForgetPasswordView extends HookView<ForgetPasswordViewModel> {
           Text(
             'forget_password_screen.hint_text'.tr(),
             textAlign: TextAlign.center,
-            style: GoogleFonts.lato(
+            style: GoogleFonts.ubuntu(
               textStyle: theme.textTheme.bodyText1,
               fontSize: 16,
               fontWeight: FontWeight.w700,

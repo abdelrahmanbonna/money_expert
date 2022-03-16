@@ -48,7 +48,7 @@ class LoginView extends HookView<LoginViewModel> {
             tag: titleTag,
             child: Text(
               'app_title'.tr(),
-              style: GoogleFonts.lato(
+              style: GoogleFonts.ubuntu(
                 textStyle: theme.textTheme.headline4,
                 fontSize: 48,
                 fontWeight: FontWeight.w700,
@@ -89,7 +89,7 @@ class LoginView extends HookView<LoginViewModel> {
             ),
             child: Text(
               'login_screen.forgetpassword'.tr(),
-              style: GoogleFonts.lato(
+              style: GoogleFonts.ubuntu(
                 textStyle: theme.textTheme.headline4,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,

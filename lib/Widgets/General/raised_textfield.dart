@@ -74,7 +74,7 @@ class RaisedTextField extends StatelessWidget {
               : null,
           suffixIcon: trellingWidget,
           border: InputBorder.none,
-          hintStyle: GoogleFonts.lato(
+          hintStyle: GoogleFonts.ubuntu(
             color: theme.primaryColor,
           ),
           hintText: hint,

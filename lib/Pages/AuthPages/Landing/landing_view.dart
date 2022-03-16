@@ -37,7 +37,7 @@ class LandingView extends HookView<LandingViewModel> {
             tag: titleTag,
             child: Text(
               'app_title'.tr(),
-              style: GoogleFonts.lato(
+              style: GoogleFonts.ubuntu(
                 textStyle: theme.textTheme.headline4,
                 fontSize: 48,
                 fontWeight: FontWeight.w700,
@@ -91,7 +91,7 @@ class LandingView extends HookView<LandingViewModel> {
           ).setOnlyPadding(context, 0.03, 0.02, 0.0427, 0.0427),
           Text(
             'all_rights_reserved'.tr(),
-            style: GoogleFonts.lato(
+            style: GoogleFonts.ubuntu(
               textStyle: theme.textTheme.headline4,
               fontSize: 12,
               fontWeight: FontWeight.w700,

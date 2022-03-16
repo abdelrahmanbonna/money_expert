@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:money_expert/Pages/HomePages/Home/home_viewmodel.dart';
 import 'package:money_expert/Widgets/HomePages/Home/balance_card.dart';
+import 'package:money_expert/Widgets/HomePages/Home/debits_card.dart';
 import 'package:money_expert/Widgets/HomePages/Home/welcome_card.dart';
 import 'package:pmvvm/pmvvm.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:skeletons/skeletons.dart';
 
 import '../../../extensions/padding_ext.dart';
 
@@ -13,7 +16,10 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MVVM(view: () => const HomeView(), viewModel: HomeViewModel());
+    return MVVM(
+      view: () => const HomeView(),
+      viewModel: HomeViewModel(),
+    );
   }
 }
 
@@ -34,6 +40,7 @@ class HomeView extends HookView<HomeViewModel> {
           bottom: mediaQuery.padding.bottom,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -76,10 +83,63 @@ class HomeView extends HookView<HomeViewModel> {
             WelcomeCard(
               username: viewModel.username,
               loaded: viewModel.userDataloaded,
+              imgURL: viewModel.imgURL,
             ).setOnlyPadding(context, 0, 0.01, 0.0, 0.0),
             BalanceCard(
-              balance: viewModel.balance,
-            ),
+              cashBalance: viewModel.cashBalance,
+              bankBalance: viewModel.bankBalance,
+            ).setOnlyPadding(context, 0, 0.01, 0.0, 0.0),
+            Text(
+              'home_screen.last_debits'.tr(),
+              style: GoogleFonts.ubuntu(
+                textStyle: theme.textTheme.headline4,
+                fontSize: 14,
+                fontWeight: FontWeight.w900,
+                fontStyle: FontStyle.italic,
+                color: theme.primaryColor.withOpacity(0.7),
+              ),
+            ).setOnlyPadding(context, 0, 0.02, 0.0427, 0.0427),
+            if (viewModel.userDataloaded)
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 5,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 15,
+                  );
+                },
+                itemBuilder: (context, index) {
+                  return index == 0
+                      ? const DebitsCard(
+                          icon: Icons.credit_card_rounded,
+                          amount: 10.0,
+                          username: 'Ebraam Boshra',
+                        )
+                      : const DebitsCard(
+                          icon: Icons.credit_card_rounded,
+                          amount: 1000.0,
+                          username: 'Ebraam Boshra',
+                          type: DebitType.owesYou,
+                        );
+                },
+                scrollDirection: Axis.vertical,
+              ),
+            if (!viewModel.userDataloaded)
+              SizedBox(
+                width: mediaQuery.size.width,
+                height: mediaQuery.size.height * 0.55,
+                child: SkeletonListView(
+                  itemCount: 3,
+                  item: const DebitsCard(
+                    icon: Icons.money_off_rounded,
+                    username: ' ',
+                  ).setOnlyPadding(context, 0.02, 0.01, 0, 0),
+                ),
+              ),
           ],
         ),
       ),
@@ -96,7 +156,7 @@ class HomeView extends HookView<HomeViewModel> {
           ),
         ),
         child: Icon(
-          Icons.plus_one,
+          Icons.add,
           color: theme.scaffoldBackgroundColor,
         ),
       ),

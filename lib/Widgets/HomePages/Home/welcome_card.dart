@@ -6,11 +6,12 @@ import 'package:skeletons/skeletons.dart';
 import '../../../extensions/padding_ext.dart';
 
 class WelcomeCard extends StatelessWidget {
-  final String username;
+  final String username, imgURL;
   final bool loaded;
   const WelcomeCard({
     Key? key,
     required this.username,
+    required this.imgURL,
     this.loaded = true,
   }) : super(key: key);
 
@@ -20,7 +21,7 @@ class WelcomeCard extends StatelessWidget {
     var theme = Theme.of(context);
     return Container(
       width: mediaQuery.size.width,
-      height: mediaQuery.size.height * 0.1,
+      height: mediaQuery.size.height * 0.13,
       margin: EdgeInsets.symmetric(
         horizontal: mediaQuery.size.width * 0.0427,
         vertical: mediaQuery.size.height * 0.01,
@@ -47,16 +48,16 @@ class WelcomeCard extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: mediaQuery.size.width * 0.7,
+            width: mediaQuery.size.width * 0.68,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (loaded)
                   Text(
                     'home_screen.welcome'.tr(),
-                    style: GoogleFonts.lato(
+                    style: GoogleFonts.ubuntu(
                       textStyle: theme.textTheme.headline4,
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.italic,
                       color: theme.primaryColor.withOpacity(0.7),
@@ -73,9 +74,9 @@ class WelcomeCard extends StatelessWidget {
                 if (loaded)
                   Text(
                     username,
-                    style: GoogleFonts.lato(
+                    style: GoogleFonts.ubuntu(
                       textStyle: theme.textTheme.headline4,
-                      fontSize: 28,
+                      fontSize: 24,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.italic,
                       color: theme.primaryColor.withOpacity(0.7),
@@ -95,13 +96,16 @@ class WelcomeCard extends StatelessWidget {
           Container(
             width: mediaQuery.size.width * 0.13,
             height: mediaQuery.size.width * 0.13,
+            margin: const EdgeInsets.only(
+              left: 5,
+            ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: loaded
-                  ? const DecorationImage(
+                  ? DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                        'https://picsum.photos/200',
+                        imgURL,
                       ),
                     )
                   : null,

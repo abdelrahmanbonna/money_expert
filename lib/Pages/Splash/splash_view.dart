@@ -34,7 +34,7 @@ class SplashView extends HookView<SplashViewModel> {
               child: FadeIn(
                 child: Text(
                   'app_title'.tr(),
-                  style: GoogleFonts.lato(
+                  style: GoogleFonts.ubuntu(
                     textStyle: theme.textTheme.headline4,
                     fontSize: 48,
                     fontWeight: FontWeight.w700,

@@ -25,6 +25,12 @@
     },
     "home_screen":{
         "welcome":"أهلا،",
-        "add_new_transaction":"أضف عملية جديدة"
+        "add_new_transaction":"أضف عملية جديدة",
+        "cash_balance":"رصيد المال",
+        "bank_balance":"رصيد البنك",
+        "last_debits": "الديون الاخيرة",
+        "you_owe":"تدين ل",
+        "owes_you": "يدين لك"
+
     }
 }

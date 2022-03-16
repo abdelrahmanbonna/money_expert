@@ -24,7 +24,11 @@
     },
     "home_screen":{
         "welcome":"Welcome,",
-        "add_new_transaction":"Add new transaction"
-        
+        "add_new_transaction":"Add new transaction",
+        "cash_balance":"Cash Balance",
+        "bank_balance":"Bank Balance",
+        "last_debits": "Last Debits",
+        "you_owe":"You owe",
+        "owes_you": "owes you"
     }
 }
