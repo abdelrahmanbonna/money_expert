@@ -116,14 +116,16 @@ class HomeView extends HookView<HomeViewModel> {
                 itemBuilder: (context, index) {
                   return index == 0
                       ? const DebitsCard(
-                          icon: Icons.credit_card_rounded,
+                          icon: FontAwesomeIcons.coins,
                           amount: 10.0,
                           username: 'Ebraam Boshra',
+                          thing: 'nescafe',
                         )
                       : const DebitsCard(
-                          icon: Icons.credit_card_rounded,
+                          icon: FontAwesomeIcons.coins,
                           amount: 1000.0,
                           username: 'Ebraam Boshra',
+                          thing: 'food',
                           type: DebitType.owesYou,
                         );
                 },
@@ -136,8 +138,9 @@ class HomeView extends HookView<HomeViewModel> {
                 child: SkeletonListView(
                   itemCount: 3,
                   item: const DebitsCard(
-                    icon: Icons.money_off_rounded,
+                    icon: FontAwesomeIcons.coins,
                     username: ' ',
+                    thing: ' ',
                   ).setOnlyPadding(context, 0.02, 0.01, 0, 0),
                 ),
               ),

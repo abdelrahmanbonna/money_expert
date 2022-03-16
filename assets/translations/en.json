@@ -30,6 +30,7 @@
         "last_debits": "Last Debits",
         "you_owe":"You owe",
         "owes_you": "owes you",
-        "last_payments":"Last Payments"
+        "last_payments":"Last Payments",
+        "for":"for"
     }
 }

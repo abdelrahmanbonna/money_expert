@@ -7,7 +7,7 @@ import '../../../extensions/padding_ext.dart';
 enum DebitType { owesYou, youOwe }
 
 class DebitsCard extends StatelessWidget {
-  final String username;
+  final String username, thing;
   final IconData icon;
   final DebitType type;
   final double amount;
@@ -15,6 +15,7 @@ class DebitsCard extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.username,
+    required this.thing,
     this.type = DebitType.youOwe,
     this.amount = 0.0,
   }) : super(key: key);
@@ -25,7 +26,7 @@ class DebitsCard extends StatelessWidget {
     var theme = Theme.of(context);
     return SizedBox(
       width: mediaQuery.size.width,
-      height: mediaQuery.size.height * 0.1,
+      height: mediaQuery.size.height * 0.12,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -65,20 +66,28 @@ class DebitsCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                type == DebitType.youOwe
-                    ? 'home_screen.you_owe'.tr() + ' ' + username
-                    : username + ' ' + 'home_screen.owes_you'.tr(),
-                style: GoogleFonts.ubuntu(
-                  textStyle: theme.textTheme.headline4,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.normal,
-                  color: type == DebitType.youOwe
-                      ? Colors.red[800]!.withOpacity(0.9)
-                      : Colors.teal.withOpacity(0.9),
-                ),
-              ).setOnlyPadding(context, 0, 0.01, 0, 0),
+              SizedBox(
+                width: mediaQuery.size.width * 0.65,
+                child: Text(
+                  (type == DebitType.youOwe
+                          ? 'home_screen.you_owe'.tr() + ' ' + username
+                          : username + ' ' + 'home_screen.owes_you'.tr()) +
+                      ' ' +
+                      'home_screen.for'.tr() +
+                      ' ' +
+                      thing,
+                  maxLines: 2,
+                  style: GoogleFonts.ubuntu(
+                    textStyle: theme.textTheme.headline4,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontStyle: FontStyle.normal,
+                    color: type == DebitType.youOwe
+                        ? Colors.red[800]!.withOpacity(0.9)
+                        : Colors.teal.withOpacity(0.9),
+                  ),
+                ).setOnlyPadding(context, 0, 0.01, 0, 0),
+              ),
               Text(
                 amount.toString(),
                 style: GoogleFonts.ubuntu(
