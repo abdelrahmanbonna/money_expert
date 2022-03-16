@@ -57,7 +57,7 @@ class DebitsCard extends StatelessWidget {
               icon,
               color: type == DebitType.youOwe
                   ? Colors.red[800]!.withOpacity(0.7)
-                  : Colors.teal.withOpacity(0.7),
+                  : Colors.teal.withOpacity(0.9),
               size: 30,
             ),
           ),
@@ -76,7 +76,7 @@ class DebitsCard extends StatelessWidget {
                   fontStyle: FontStyle.normal,
                   color: type == DebitType.youOwe
                       ? Colors.red[800]!.withOpacity(0.7)
-                      : Colors.teal.withOpacity(0.7),
+                      : Colors.teal.withOpacity(0.9),
                 ),
               ).setOnlyPadding(context, 0, 0.01, 0, 0),
               Text(
@@ -88,7 +88,7 @@ class DebitsCard extends StatelessWidget {
                   fontStyle: FontStyle.italic,
                   color: type == DebitType.youOwe
                       ? Colors.red[800]!.withOpacity(0.7)
-                      : Colors.teal.withOpacity(0.7),
+                      : Colors.teal.withOpacity(0.9),
                 ),
               ),
             ],
