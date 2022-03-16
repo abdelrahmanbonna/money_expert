@@ -67,7 +67,7 @@ class DebitsCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: mediaQuery.size.width * 0.65,
+                width: mediaQuery.size.width * 0.55,
                 child: Text(
                   (type == DebitType.youOwe
                           ? 'home_screen.you_owe'.tr() + ' ' + username
