@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:money_expert/Models/User/user_model.dart';
 import 'package:pmvvm/view_model.dart';
 
 class HomeViewModel extends ViewModel {
+  final GlobalKey<ScaffoldState> scaffoldKey =  GlobalKey<ScaffoldState>();
   bool _raiseNav = false, _userDataloaded = true;
 
   final User _usr = User(

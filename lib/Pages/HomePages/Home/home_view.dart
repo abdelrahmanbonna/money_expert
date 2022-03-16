@@ -6,6 +6,7 @@ import 'package:money_expert/Widgets/HomePages/Home/balance_card.dart';
 import 'package:money_expert/Widgets/HomePages/Home/debits_card.dart';
 import 'package:money_expert/Widgets/HomePages/Home/payment_card.dart';
 import 'package:money_expert/Widgets/HomePages/Home/welcome_card.dart';
+import 'package:money_expert/Widgets/HomePages/Navbar/home_drawer.dart';
 import 'package:pmvvm/pmvvm.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:skeletons/skeletons.dart';
@@ -32,6 +33,9 @@ class HomeView extends HookView<HomeViewModel> {
     var mediaQuery = MediaQuery.of(context);
     var theme = Theme.of(context);
     return Scaffold(
+      key: viewModel.scaffoldKey,
+      drawer: const HomeDrawer(),
+      drawerEnableOpenDragGesture: true,
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -170,7 +174,7 @@ class HomeView extends HookView<HomeViewModel> {
                 ),
                 child: InkWell(
                   onTap: () {
-                    //TODO open a navbar
+                    viewModel.scaffoldKey.currentState!.openDrawer();
                   },
                   child: Icon(
                     FontAwesomeIcons.ellipsisV,
