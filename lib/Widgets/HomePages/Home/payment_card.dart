@@ -1,21 +1,15 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../extensions/padding_ext.dart';
 
-enum DebitType { owesYou, youOwe }
-
-class DebitsCard extends StatelessWidget {
-  final String username;
-  final IconData icon;
-  final DebitType type;
+class PaymentCard extends StatelessWidget {
+  final String thing;
   final double amount;
-  const DebitsCard({
+  const PaymentCard({
     Key? key,
-    required this.icon,
-    required this.username,
-    this.type = DebitType.youOwe,
+    required this.thing,
     this.amount = 0.0,
   }) : super(key: key);
 
@@ -54,10 +48,8 @@ class DebitsCard extends StatelessWidget {
               ],
             ),
             child: Icon(
-              icon,
-              color: type == DebitType.youOwe
-                  ? Colors.red[800]!.withOpacity(0.9)
-                  : Colors.teal.withOpacity(0.9),
+              FontAwesomeIcons.moneyBill,
+              color: Colors.red[800]!.withOpacity(0.9),
               size: 30,
             ),
           ),
@@ -66,17 +58,13 @@ class DebitsCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                type == DebitType.youOwe
-                    ? 'home_screen.you_owe'.tr() + ' ' + username
-                    : username + ' ' + 'home_screen.owes_you'.tr(),
+                thing,
                 style: GoogleFonts.ubuntu(
                   textStyle: theme.textTheme.headline4,
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   fontStyle: FontStyle.normal,
-                  color: type == DebitType.youOwe
-                      ? Colors.red[800]!.withOpacity(0.9)
-                      : Colors.teal.withOpacity(0.9),
+                  color: Colors.red[800]!.withOpacity(0.9),
                 ),
               ).setOnlyPadding(context, 0, 0.01, 0, 0),
               Text(
@@ -86,9 +74,7 @@ class DebitsCard extends StatelessWidget {
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   fontStyle: FontStyle.italic,
-                  color: type == DebitType.youOwe
-                      ? Colors.red[800]!.withOpacity(0.9)
-                      : Colors.teal.withOpacity(0.9),
+                  color: Colors.red[800]!.withOpacity(0.9),
                 ),
               ),
             ],

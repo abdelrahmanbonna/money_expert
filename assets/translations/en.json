@@ -29,6 +29,7 @@
         "bank_balance":"Bank Balance",
         "last_debits": "Last Debits",
         "you_owe":"You owe",
-        "owes_you": "owes you"
+        "owes_you": "owes you",
+        "last_payments":"Last Payments"
     }
 }

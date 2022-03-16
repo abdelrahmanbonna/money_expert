@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:money_expert/Pages/HomePages/Home/home_viewmodel.dart';
 import 'package:money_expert/Widgets/HomePages/Home/balance_card.dart';
 import 'package:money_expert/Widgets/HomePages/Home/debits_card.dart';
+import 'package:money_expert/Widgets/HomePages/Home/payment_card.dart';
 import 'package:money_expert/Widgets/HomePages/Home/welcome_card.dart';
 import 'package:pmvvm/pmvvm.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -88,7 +89,7 @@ class HomeView extends HookView<HomeViewModel> {
             BalanceCard(
               cashBalance: viewModel.cashBalance,
               bankBalance: viewModel.bankBalance,
-            ).setOnlyPadding(context, 0, 0.01, 0.0, 0.0),
+            ).setOnlyPadding(context, 0, 0.02, 0.0, 0.0),
             Text(
               'home_screen.last_debits'.tr(),
               style: GoogleFonts.ubuntu(
@@ -103,7 +104,7 @@ class HomeView extends HookView<HomeViewModel> {
               ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: 5,
+                itemCount: 4,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                 ),
@@ -140,6 +141,37 @@ class HomeView extends HookView<HomeViewModel> {
                   ).setOnlyPadding(context, 0.02, 0.01, 0, 0),
                 ),
               ),
+            Text(
+              'home_screen.last_payments'.tr(),
+              style: GoogleFonts.ubuntu(
+                textStyle: theme.textTheme.headline4,
+                fontSize: 14,
+                fontWeight: FontWeight.w900,
+                fontStyle: FontStyle.italic,
+                color: theme.primaryColor.withOpacity(0.7),
+              ),
+            ).setOnlyPadding(context, 0.02, 0.02, 0.0427, 0.0427),
+            if (viewModel.userDataloaded)
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 4,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 15,
+                  );
+                },
+                itemBuilder: (context, index) {
+                  return const PaymentCard(
+                    amount: 100.0,
+                    thing: 'Food',
+                  );
+                },
+                scrollDirection: Axis.vertical,
+              ).setOnlyPadding(context, 0, 0.1, 0, 0),
           ],
         ),
       ),

@@ -30,7 +30,7 @@
         "bank_balance":"رصيد البنك",
         "last_debits": "الديون الاخيرة",
         "you_owe":"تدين ل",
-        "owes_you": "يدين لك"
-
+        "owes_you": "يدين لك",
+        "last_payments":"اخر المدفوعات"
     }
 }
