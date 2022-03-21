@@ -7,14 +7,14 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MVVM(
-      view: () => SearchView(),
+      view: () => const SearchView(),
       viewModel: SearchViewModel(),
     );
   }
 }
 
 class SearchView extends HookView<SearchViewModel> {
-  SearchView({Key? key}) : super(key: key, reactive: true);
+  const SearchView({Key? key}) : super(key: key, reactive: true);
   @override
   Widget render(BuildContext context, SearchViewModel viewModel) {
     throw 'Error page not emplemented';
