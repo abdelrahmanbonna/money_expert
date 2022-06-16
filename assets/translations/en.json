@@ -32,5 +32,10 @@
         "owes_you": "owes you",
         "last_payments":"Last Payments",
         "for":"for"
+    },
+    "home_drawer":{
+       "profile":"Profile",
+       "friends":"Friends",
+       "personal_money_management":"Personal money management"
     }
 }

@@ -74,12 +74,12 @@ class LandingView extends HookView<LandingViewModel> {
                 dropdownColor: theme.scaffoldBackgroundColor,
                 items: const [
                   DropdownMenuItem(
-                    child: Text('English'),
                     value: 'en',
+                    child: Text('English'),
                   ),
                   DropdownMenuItem(
-                    child: Text('العربية'),
                     value: 'ar',
+                    child: Text('العربية'),
                   ),
                 ],
                 value: context.locale.toString(),

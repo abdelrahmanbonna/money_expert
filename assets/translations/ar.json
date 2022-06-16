@@ -33,5 +33,10 @@
         "owes_you": "يدين لك",
         "last_payments":"اخر المدفوعات",
         "for":"من اجل"
+    },
+    "home_drawer":{
+       "profile":"الملف الشخصي",
+       "friends":"الاصدقاء",
+       "personal_money_management":"ادارة الاموال الشخصية"
     }
 }

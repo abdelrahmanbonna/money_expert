@@ -57,8 +57,8 @@ class DebitsCard extends StatelessWidget {
             child: Icon(
               icon,
               color: type == DebitType.youOwe
-                  ? Colors.red[800]!.withOpacity(0.9)
-                  : Colors.teal.withOpacity(0.9),
+                  ? const Color(0xffe84118).withOpacity(0.9)
+                  : const Color(0xffe1b12c).withOpacity(0.9),
               size: 30,
             ),
           ),
@@ -69,13 +69,7 @@ class DebitsCard extends StatelessWidget {
               SizedBox(
                 width: mediaQuery.size.width * 0.55,
                 child: Text(
-                  (type == DebitType.youOwe
-                          ? 'home_screen.you_owe'.tr() + ' ' + username
-                          : username + ' ' + 'home_screen.owes_you'.tr()) +
-                      ' ' +
-                      'home_screen.for'.tr() +
-                      ' ' +
-                      thing,
+                  '${type == DebitType.youOwe ? '${'home_screen.you_owe'.tr()} $username' : '$username ${'home_screen.owes_you'.tr()}'} ${'home_screen.for'.tr()} $thing',
                   maxLines: 2,
                   style: GoogleFonts.ubuntu(
                     textStyle: theme.textTheme.headline4,
@@ -83,8 +77,8 @@ class DebitsCard extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.normal,
                     color: type == DebitType.youOwe
-                        ? Colors.red[800]!.withOpacity(0.9)
-                        : Colors.teal.withOpacity(0.9),
+                        ? const Color(0xffe84118).withOpacity(0.9)
+                        : const Color(0xffe1b12c).withOpacity(0.9),
                   ),
                 ).setOnlyPadding(context, 0, 0.01, 0, 0),
               ),
@@ -94,10 +88,9 @@ class DebitsCard extends StatelessWidget {
                   textStyle: theme.textTheme.headline4,
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.italic,
                   color: type == DebitType.youOwe
-                      ? Colors.red[800]!.withOpacity(0.9)
-                      : Colors.teal.withOpacity(0.9),
+                      ? const Color(0xffe84118).withOpacity(0.9)
+                      : const Color(0xffe1b12c).withOpacity(0.9),
                 ),
               ),
             ],

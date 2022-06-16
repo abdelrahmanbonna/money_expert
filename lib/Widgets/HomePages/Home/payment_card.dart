@@ -49,7 +49,7 @@ class PaymentCard extends StatelessWidget {
             ),
             child: Icon(
               FontAwesomeIcons.moneyBill,
-              color: Colors.red[800]!.withOpacity(0.9),
+              color: const Color(0xffe84118).withOpacity(0.9),
               size: 30,
             ),
           ),
@@ -64,7 +64,7 @@ class PaymentCard extends StatelessWidget {
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   fontStyle: FontStyle.normal,
-                  color: Colors.red[800]!.withOpacity(0.9),
+                  color: const Color(0xffe84118).withOpacity(0.9),
                 ),
               ).setOnlyPadding(context, 0, 0.01, 0, 0),
               Text(
@@ -74,7 +74,7 @@ class PaymentCard extends StatelessWidget {
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   fontStyle: FontStyle.italic,
-                  color: Colors.red[800]!.withOpacity(0.9),
+                  color: const Color(0xffe84118).withOpacity(0.9),
                 ),
               ),
             ],

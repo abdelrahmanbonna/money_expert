@@ -1,6 +1,6 @@
 // import 'package:encrypt/encrypt.dart' as encrypt;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class Constants {
   static final oCcy = NumberFormat('#,##0.00', 'en_US');
@@ -11,9 +11,9 @@ class Constants {
   static const String usernamePattern =
       r"[\u0621-\u064AA-Za-z0-9 \\.\\-_]{7,30}$";
   static const String passwordPatternSpecial =
-      r"(?=^.{8,}$)(?=.*[!@#$%^&*]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$"; 
+      r"(?=^.{8,}$)(?=.*[!@#$%^&*]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$";
   static const String passwordPatternNumeric =
-      r"(?=^.{8,}$)(?=.*\\d)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$"; 
+      r"(?=^.{8,}$)(?=.*\\d)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$";
   static const String firstnamePattern = r"^[A-Za-z \\.\\-_]{2,20}$";
   static const String lastnamePattern = r"^[A-Za-z \\.\\-_]{7,40}$";
   static const String namePattern = r"^[\u0621-\u064AA-Za-z0-9 \.\-_]{7,30}$";

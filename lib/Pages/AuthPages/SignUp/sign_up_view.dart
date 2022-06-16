@@ -59,7 +59,7 @@ class SignUpView extends HookView<SignUpViewModel> {
           RaisedTextField(
             hint: 'sign_up_screen.user_name'.tr(),
             controller: viewModel.usernameController,
-            icon: FontAwesomeIcons.userCircle,
+            icon: FontAwesomeIcons.circleUser,
           ).setHorizontalAndVerticalPadding(context, 0.0427, 0.01),
           RaisedTextField(
             hint: 'sign_up_screen.email'.tr(),

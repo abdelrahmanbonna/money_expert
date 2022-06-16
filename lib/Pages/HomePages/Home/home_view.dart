@@ -34,7 +34,9 @@ class HomeView extends HookView<HomeViewModel> {
     var theme = Theme.of(context);
     return Scaffold(
       key: viewModel.scaffoldKey,
-      drawer: const HomeDrawer(),
+      drawer: HomeDrawer(
+        viewModel: viewModel,
+      ),
       drawerEnableOpenDragGesture: true,
       body: Stack(
         children: [
@@ -177,7 +179,7 @@ class HomeView extends HookView<HomeViewModel> {
                     viewModel.scaffoldKey.currentState!.openDrawer();
                   },
                   child: Icon(
-                    FontAwesomeIcons.ellipsisV,
+                    FontAwesomeIcons.bars,
                     color: theme.primaryColor.withOpacity(0.7),
                   ),
                 ),

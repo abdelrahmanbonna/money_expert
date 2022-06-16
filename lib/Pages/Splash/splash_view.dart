@@ -32,6 +32,8 @@ class SplashView extends HookView<SplashViewModel> {
             height: mediaQuery.size.height,
             child: Center(
               child: FadeIn(
+                duration: const Duration(seconds: 2),
+                curve: Curves.easeIn,
                 child: Text(
                   'app_title'.tr(),
                   style: GoogleFonts.ubuntu(
@@ -42,8 +44,6 @@ class SplashView extends HookView<SplashViewModel> {
                     color: theme.primaryColor,
                   ),
                 ),
-                duration: const Duration(seconds: 2),
-                curve: Curves.easeIn,
               ),
             ),
           ),

@@ -39,7 +39,7 @@ class MyApp extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -87,34 +87,34 @@ class _MyAppState extends State<MyApp> {
         switch (brightness) {
           case Brightness.light:
             return ThemeData(
-              primaryColor: Colors.teal,
+              primaryColor: const Color(0xff40739e),
               backgroundColor: Colors.grey[300],
               primarySwatch: Constants.createMaterialColor(
-                Colors.teal,
+                const Color(0xff40739e),
               ),
-              scaffoldBackgroundColor: Colors.grey[300],
+              scaffoldBackgroundColor: const Color(0xffdcdde1),
               shadowColor: const Color.fromARGB(255, 255, 255, 255),
               brightness: brightness,
             );
           case Brightness.dark:
             return ThemeData(
-              primaryColor: Colors.teal,
+              primaryColor: const Color(0xff40739e),
               primarySwatch: Constants.createMaterialColor(
-                Colors.teal,
+                const Color(0xff40739e),
               ),
               backgroundColor: const Color.fromARGB(255, 43, 43, 43),
-              scaffoldBackgroundColor: Colors.grey[800],
+              scaffoldBackgroundColor: const Color(0xff2f3640),
               shadowColor: const Color.fromARGB(255, 43, 43, 43),
               brightness: brightness,
             );
           default:
             return ThemeData(
-              primaryColor: Colors.teal,
+              primaryColor: const Color(0xff40739e),
               backgroundColor: Colors.grey[300],
               primarySwatch: Constants.createMaterialColor(
-                Colors.teal,
+                const Color(0xff40739e),
               ),
-              scaffoldBackgroundColor: Colors.grey[300],
+              scaffoldBackgroundColor: const Color(0xffdcdde1),
               brightness: brightness,
             );
         }
