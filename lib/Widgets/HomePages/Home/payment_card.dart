@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:money_expert/Configurations/responsive.dart';
 
 import '../../../extensions/padding_ext.dart';
 
@@ -19,13 +20,17 @@ class PaymentCard extends StatelessWidget {
     var theme = Theme.of(context);
     return SizedBox(
       width: mediaQuery.size.width,
-      height: mediaQuery.size.height * 0.1,
+      height: Responsive.isMobile(context) ? mediaQuery.size.height * 0.1 : 300,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: mediaQuery.size.width * 0.15,
-            height: mediaQuery.size.width * 0.15,
+            width: Responsive.isMobile(context)
+                ? mediaQuery.size.width * 0.15
+                : 100,
+            height: Responsive.isMobile(context)
+                ? mediaQuery.size.width * 0.15
+                : 100,
             margin: const EdgeInsets.only(
               right: 5,
             ),

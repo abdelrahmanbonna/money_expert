@@ -5,6 +5,7 @@ import 'package:money_expert/Pages/AuthPages/ForgetPassword/forget_password_view
 import 'package:money_expert/extensions/extensions.dart';
 import 'package:pmvvm/pmvvm.dart';
 
+import '../../../Configurations/responsive.dart';
 import '../../../Widgets/General/raised_rounded_button.dart';
 import '../../../Widgets/General/raised_textfield.dart';
 
@@ -66,11 +67,14 @@ class ForgetPasswordView extends HookView<ForgetPasswordViewModel> {
           RaisedTextField(
             hint: 'forget_password_screen.email'.tr(),
             controller: viewModel.emailController,
-          ).setHorizontalAndVerticalPadding(context, 0.0427, 0.01),
+          ).setHorizontalAndVerticalPadding(
+              context, Responsive.isMobile(context) ? 0.0427 : 0.35, 0.01),
         ],
       ),
       floatingActionButton: RaisedRoundedButton(
-        width: mediaQuery.size.width * 0.9,
+        width: Responsive.isMobile(context)
+            ? mediaQuery.size.width * 0.9
+            : mediaQuery.size.width * 0.2,
         title: 'forget_password_screen.reset_password'.tr(),
         onTap: () {},
       ),

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:money_expert/Configurations/responsive.dart';
 
 import '../../../extensions/padding_ext.dart';
 
@@ -31,8 +32,12 @@ class DebitsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: mediaQuery.size.width * 0.15,
-            height: mediaQuery.size.width * 0.15,
+            width: Responsive.isMobile(context)
+                ? mediaQuery.size.width * 0.15
+                : 100,
+            height: Responsive.isMobile(context)
+                ? mediaQuery.size.width * 0.15
+                : 100,
             margin: const EdgeInsets.only(
               right: 5,
             ),
@@ -67,7 +72,9 @@ class DebitsCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: mediaQuery.size.width * 0.55,
+                width: Responsive.isMobile(context)
+                    ? mediaQuery.size.width * 0.55
+                    : 150,
                 child: Text(
                   '${type == DebitType.youOwe ? '${'home_screen.you_owe'.tr()} $username' : '$username ${'home_screen.owes_you'.tr()}'} ${'home_screen.for'.tr()} $thing',
                   maxLines: 2,

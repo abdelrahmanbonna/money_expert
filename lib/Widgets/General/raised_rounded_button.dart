@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:money_expert/Configurations/responsive.dart';
 
 class RaisedRoundedButton extends StatelessWidget {
   final double? width;
@@ -20,7 +21,8 @@ class RaisedRoundedButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: width ?? mediaQuery.size.width,
-        height: mediaQuery.size.height * 0.065,
+        height:
+            !Responsive.isMobile(context) ? 50 : mediaQuery.size.height * 0.065,
         decoration: BoxDecoration(
           color: theme.primaryColor,
           borderRadius: BorderRadius.circular(10),

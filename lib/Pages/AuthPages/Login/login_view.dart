@@ -8,6 +8,7 @@ import 'package:money_expert/extensions/extensions.dart';
 import 'package:pmvvm/pmvvm.dart';
 import 'package:flutter/material.dart';
 
+import '../../../Configurations/responsive.dart';
 import 'login_viewmodel.dart';
 
 class Login extends StatelessWidget {
@@ -61,7 +62,8 @@ class LoginView extends HookView<LoginViewModel> {
             hint: 'login_screen.email'.tr(),
             controller: viewModel.emailController,
             icon: FontAwesomeIcons.envelope,
-          ).setHorizontalAndVerticalPadding(context, 0.0427, 0.01),
+          ).setHorizontalAndVerticalPadding(
+              context, Responsive.isMobile(context) ? 0.0427 : 0.35, 0.01),
           RaisedTextField(
             hint: 'login_screen.password'.tr(),
             controller: viewModel.passwordController,
@@ -79,7 +81,8 @@ class LoginView extends HookView<LoginViewModel> {
                 viewModel.setShowPassword(!viewModel.showPassword);
               },
             ),
-          ).setHorizontalAndVerticalPadding(context, 0.0427, 0.01),
+          ).setHorizontalAndVerticalPadding(
+              context, Responsive.isMobile(context) ? 0.0427 : 0.35, 0.01),
           InkWell(
             onTap: () => Navigator.of(context).pushNamed(
               PageRouteName.forgetPassword,
@@ -102,7 +105,9 @@ class LoginView extends HookView<LoginViewModel> {
         ],
       ),
       floatingActionButton: RaisedRoundedButton(
-        width: mediaQuery.size.width * 0.9,
+        width: Responsive.isMobile(context)
+            ? mediaQuery.size.width * 0.9
+            : mediaQuery.size.width * 0.2,
         title: 'login_screen.login'.tr(),
         onTap: () {
           Navigator.of(context)

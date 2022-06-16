@@ -4,17 +4,22 @@ import 'package:google_fonts/google_fonts.dart';
 
 class BalanceCard extends StatelessWidget {
   final double cashBalance, bankBalance;
-  const BalanceCard(
-      {Key? key, required this.bankBalance, required this.cashBalance})
-      : super(key: key);
+  final double? width, height;
+  const BalanceCard({
+    Key? key,
+    required this.bankBalance,
+    required this.cashBalance,
+    this.height,
+    this.width,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var theme = Theme.of(context);
     return Container(
-      width: mediaQuery.size.width,
-      height: mediaQuery.size.height * 0.15,
+      width: width ?? mediaQuery.size.width,
+      height: height ?? mediaQuery.size.height * 0.15,
       margin: EdgeInsets.symmetric(
         horizontal: mediaQuery.size.width * 0.0427,
         vertical: mediaQuery.size.height * 0.01,

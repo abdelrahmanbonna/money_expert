@@ -11,6 +11,7 @@ import 'package:pmvvm/pmvvm.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:skeletons/skeletons.dart';
 
+import '../../../Configurations/responsive.dart';
 import '../../../extensions/padding_ext.dart';
 
 class Home extends StatelessWidget {
@@ -51,15 +52,36 @@ class HomeView extends HookView<HomeViewModel> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                WelcomeCard(
-                  username: viewModel.username,
-                  loaded: viewModel.userDataloaded,
-                  imgURL: viewModel.imgURL,
-                ).setOnlyPadding(context, 0.08, 0.01, 0.0, 0.0),
-                BalanceCard(
-                  cashBalance: viewModel.cashBalance,
-                  bankBalance: viewModel.bankBalance,
-                ).setOnlyPadding(context, 0, 0.02, 0.0, 0.0),
+                if (Responsive.isMobile(context))
+                  WelcomeCard(
+                    username: viewModel.username,
+                    loaded: viewModel.userDataloaded,
+                    imgURL: viewModel.imgURL,
+                  ).setOnlyPadding(context, 0.08, 0.01, 0.0, 0.0),
+                if (Responsive.isMobile(context))
+                  BalanceCard(
+                    cashBalance: viewModel.cashBalance,
+                    bankBalance: viewModel.bankBalance,
+                  ).setOnlyPadding(context, 0, 0.02, 0.0, 0.0),
+                if (!Responsive.isMobile(context))
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      WelcomeCard(
+                        width: mediaQuery.size.width * 0.4,
+                        height: 100,
+                        username: viewModel.username,
+                        loaded: viewModel.userDataloaded,
+                        imgURL: viewModel.imgURL,
+                      ),
+                      BalanceCard(
+                        width: mediaQuery.size.width * 0.4,
+                        height: 100,
+                        cashBalance: viewModel.cashBalance,
+                        bankBalance: viewModel.bankBalance,
+                      ),
+                    ],
+                  ).setOnlyPadding(context, 0.1, 0.02, 0.0, 0.0),
                 Text(
                   'home_screen.last_debits'.tr(),
                   style: GoogleFonts.ubuntu(
@@ -70,7 +92,7 @@ class HomeView extends HookView<HomeViewModel> {
                     color: theme.primaryColor.withOpacity(0.7),
                   ),
                 ).setOnlyPadding(context, 0, 0.02, 0.0427, 0.0427),
-                if (viewModel.userDataloaded)
+                if (Responsive.isMobile(context) && viewModel.userDataloaded)
                   ListView.separated(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -101,7 +123,40 @@ class HomeView extends HookView<HomeViewModel> {
                     },
                     scrollDirection: Axis.vertical,
                   ),
-                if (!viewModel.userDataloaded)
+                if (!Responsive.isMobile(context))
+                  GridView.builder(
+                    itemCount: 15,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 3.5,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                    ),
+                    itemBuilder: (ctx, indx) {
+                      return indx == 0
+                          ? const DebitsCard(
+                              icon: FontAwesomeIcons.coins,
+                              amount: 10.0,
+                              username: 'Ebraam Boshra',
+                              thing: 'nescafe',
+                            )
+                          : const DebitsCard(
+                              icon: FontAwesomeIcons.coins,
+                              amount: 1000.0,
+                              username: 'Ebraam Boshra',
+                              thing: 'food',
+                              type: DebitType.owesYou,
+                            );
+                    },
+                  ).setHorizontalPadding(context, 0.0427),
+                if (Responsive.isMobile(context) && !viewModel.userDataloaded)
                   SizedBox(
                     width: mediaQuery.size.width,
                     height: mediaQuery.size.height * 0.55,
@@ -124,7 +179,7 @@ class HomeView extends HookView<HomeViewModel> {
                     color: theme.primaryColor.withOpacity(0.7),
                   ),
                 ).setOnlyPadding(context, 0.02, 0.02, 0.0427, 0.0427),
-                if (viewModel.userDataloaded)
+                if (Responsive.isMobile(context) && viewModel.userDataloaded)
                   ListView.separated(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -145,6 +200,29 @@ class HomeView extends HookView<HomeViewModel> {
                     },
                     scrollDirection: Axis.vertical,
                   ).setOnlyPadding(context, 0, 0.1, 0, 0),
+                if (!Responsive.isMobile(context) && viewModel.userDataloaded)
+                  GridView.builder(
+                    itemCount: 15,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 3.5,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                    ),
+                    itemBuilder: (context, index) {
+                      return const PaymentCard(
+                        amount: 100.0,
+                        thing: 'Food',
+                      );
+                    },
+                  ).setOnlyPadding(context, 0, 0.1, 0.0427, 0.0427),
               ],
             ),
           ),
@@ -154,8 +232,12 @@ class HomeView extends HookView<HomeViewModel> {
             children: [
               AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
-                width: mediaQuery.size.width * 0.1,
-                height: mediaQuery.size.width * 0.1,
+                width: !Responsive.isMobile(context)
+                    ? 40
+                    : mediaQuery.size.width * 0.1,
+                height: !Responsive.isMobile(context)
+                    ? 40
+                    : mediaQuery.size.width * 0.1,
                 decoration: BoxDecoration(
                   color: theme.scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(10),

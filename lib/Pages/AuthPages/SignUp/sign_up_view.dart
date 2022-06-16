@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:money_expert/Configurations/responsive.dart';
 import 'package:money_expert/Widgets/General/raised_textfield.dart';
 import 'package:money_expert/extensions/extensions.dart';
 import 'package:pmvvm/pmvvm.dart';
@@ -60,12 +61,14 @@ class SignUpView extends HookView<SignUpViewModel> {
             hint: 'sign_up_screen.user_name'.tr(),
             controller: viewModel.usernameController,
             icon: FontAwesomeIcons.circleUser,
-          ).setHorizontalAndVerticalPadding(context, 0.0427, 0.01),
+          ).setHorizontalAndVerticalPadding(
+              context, Responsive.isMobile(context) ? 0.0427 : 0.35, 0.01),
           RaisedTextField(
             hint: 'sign_up_screen.email'.tr(),
             controller: viewModel.emailController,
             icon: FontAwesomeIcons.envelope,
-          ).setHorizontalAndVerticalPadding(context, 0.0427, 0.01),
+          ).setHorizontalAndVerticalPadding(
+              context, Responsive.isMobile(context) ? 0.0427 : 0.35, 0.01),
           RaisedTextField(
             hint: 'sign_up_screen.password'.tr(),
             controller: viewModel.passwordController,
@@ -83,11 +86,13 @@ class SignUpView extends HookView<SignUpViewModel> {
                 viewModel.setShowPassword(!viewModel.showPassword);
               },
             ),
-          ).setHorizontalAndVerticalPadding(context, 0.0427, 0.01),
+          ).setHorizontalAndVerticalPadding(
+              context, Responsive.isMobile(context) ? 0.0427 : 0.35, 0.01),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: RaisedRoundedButton(
+        width: Responsive.isMobile(context) ? null : 150,
         title: 'sign_up_screen.sign_up'.tr(),
         onTap: () => Navigator.of(context).pop(),
       ).setHorizontalAndVerticalPadding(context, 0.0427, 0),

@@ -81,15 +81,16 @@ class HomeDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   DayNightSwitcher(
                     isDarkModeEnabled: viewModel.isDarkModeEnabled,
                     onStateChanged: (isDarkModeEnabled) {
                       viewModel.setDarkMode(isDarkModeEnabled);
                     },
-                  ).setOnlyPadding(context, 0, 0, 0.1, 0),
+                  ),
                   DropdownButton<String>(
                     borderRadius: BorderRadius.circular(10),
                     dropdownColor: theme.scaffoldBackgroundColor,
@@ -109,7 +110,7 @@ class HomeDrawer extends StatelessWidget {
                     },
                   )
                 ],
-              ).setOnlyPadding(context, 0.03, 0.02, 0.0427, 0.0427),
+              ).setOnlyPadding(context, 0.03, 0.02, 0, 0),
             ],
           ),
         ),

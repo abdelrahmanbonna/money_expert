@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -14,23 +17,34 @@ import 'Services/loading_service.dart';
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
-  runZonedGuarded<Future<void>>(() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await EasyLocalization.ensureInitialized();
-    await Firebase.initializeApp();
-    CrashlyticsService.initCrashlytics();
-    runApp(
-      EasyLocalization(
-        supportedLocales: const [Locale('en'), Locale('ar')],
-        path: 'assets/translations',
-        saveLocale: false,
-        startLocale: const Locale('en'),
-        fallbackLocale: const Locale('en'),
-        child: const MyApp(),
-      ),
-    );
-    configLoading();
-  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
+  runZonedGuarded<Future<void>>(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await EasyLocalization.ensureInitialized();
+      if (!Platform.isWindows) {
+        await Firebase.initializeApp();
+        CrashlyticsService.initCrashlytics();
+      }
+      runApp(
+        EasyLocalization(
+          supportedLocales: const [Locale('en'), Locale('ar')],
+          path: 'assets/translations',
+          saveLocale: false,
+          startLocale: const Locale('en'),
+          fallbackLocale: const Locale('en'),
+          child: const MyApp(),
+        ),
+      );
+      configLoading();
+    },
+    (error, stack) {
+      if (!Platform.isWindows && !kIsWeb) {
+        FirebaseCrashlytics.instance.recordError(error, stack);
+      } else {
+        log(error.toString());
+      }
+    },
+  );
 }
 
 class MyApp extends StatefulWidget {

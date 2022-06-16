@@ -7,11 +7,14 @@ import '../../../extensions/padding_ext.dart';
 
 class WelcomeCard extends StatelessWidget {
   final String username, imgURL;
+  final double? width, height;
   final bool loaded;
   const WelcomeCard({
     Key? key,
     required this.username,
     required this.imgURL,
+    this.height,
+    this.width,
     this.loaded = true,
   }) : super(key: key);
 
@@ -20,11 +23,11 @@ class WelcomeCard extends StatelessWidget {
     var mediaQuery = MediaQuery.of(context);
     var theme = Theme.of(context);
     return Container(
-      width: mediaQuery.size.width,
-      height: mediaQuery.size.height * 0.13,
+      width: width ?? mediaQuery.size.width,
+      height: height ?? mediaQuery.size.height * 0.13,
       margin: EdgeInsets.symmetric(
         horizontal: mediaQuery.size.width * 0.0427,
-        vertical: mediaQuery.size.height * 0.01,
+        vertical: 16,
       ),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -48,7 +51,8 @@ class WelcomeCard extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: mediaQuery.size.width * 0.68,
+            width:
+                width != null ? (width! * 0.68) : mediaQuery.size.width * 0.68,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -66,7 +70,9 @@ class WelcomeCard extends StatelessWidget {
                 if (!loaded)
                   SkeletonLine(
                     style: SkeletonLineStyle(
-                      width: mediaQuery.size.width * 0.3,
+                      width: width != null
+                          ? (width! * 0.3)
+                          : mediaQuery.size.width * 0.3,
                       height: 20,
                       borderRadius: BorderRadius.circular(5),
                     ),
@@ -85,7 +91,9 @@ class WelcomeCard extends StatelessWidget {
                 if (!loaded)
                   SkeletonLine(
                     style: SkeletonLineStyle(
-                      width: mediaQuery.size.width * 0.6,
+                      width: width != null
+                          ? (width! * 0.6)
+                          : mediaQuery.size.width * 0.6,
                       height: 30,
                       borderRadius: BorderRadius.circular(5),
                     ),
@@ -94,8 +102,10 @@ class WelcomeCard extends StatelessWidget {
             ),
           ),
           Container(
-            width: mediaQuery.size.width * 0.13,
-            height: mediaQuery.size.width * 0.13,
+            width:
+                width != null ? (width! * 0.13) : mediaQuery.size.width * 0.13,
+            height:
+                width != null ? (width! * 0.13) : mediaQuery.size.width * 0.13,
             margin: const EdgeInsets.only(
               left: 5,
             ),

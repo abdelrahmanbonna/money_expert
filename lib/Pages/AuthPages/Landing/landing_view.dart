@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:money_expert/Configurations/configurations.dart';
+import 'package:money_expert/Configurations/responsive.dart';
 import 'package:money_expert/Pages/AuthPages/Landing/landing_viewmodel.dart';
 import 'package:money_expert/extensions/extensions.dart';
 import 'package:pmvvm/pmvvm.dart';
@@ -52,14 +53,16 @@ class LandingView extends HookView<LandingViewModel> {
                 .pushNamed(PageRouteName.login, arguments: [
               titleTag,
             ]),
-          ).setHorizontalAndVerticalPadding(context, 0.0427, 0.02),
+          ).setHorizontalAndVerticalPadding(
+              context, Responsive.isMobile(context) ? 0.0427 : 0.4, 0.02),
           RaisedRoundedButton(
             title: 'landing_screen.sign_up'.tr(),
             onTap: () => Navigator.of(context)
                 .pushNamed(PageRouteName.signUp, arguments: [
               titleTag,
             ]),
-          ).setHorizontalAndVerticalPadding(context, 0.0427, 0.01),
+          ).setHorizontalAndVerticalPadding(
+              context, Responsive.isMobile(context) ? 0.0427 : 0.4, 0.01),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
