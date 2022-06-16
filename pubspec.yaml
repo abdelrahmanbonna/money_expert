@@ -11,20 +11,20 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   shimmer: ^2.0.0
-  pmvvm: ^3.0.0
-  lints: ^1.0.1
-  percent_indicator: ^3.0.1
+  pmvvm: ^4.0.1
+  lints: ^2.0.0
+  percent_indicator: ^4.2.2
   shared_preferences: ^2.0.6
   flutter_easyloading: ^3.0.0
   fluttertoast: ^8.0.8
   url_launcher: ^6.0.9
-  font_awesome_flutter: ^9.0.0
+  font_awesome_flutter: ^10.1.0
   easy_localization: any
-  firebase_core: ^1.7.0
-  google_fonts: ^2.3.1
-  firebase_performance: ^0.8.0+3
-  firebase_remote_config: ^1.0.3
-  firebase_crashlytics: ^2.5.3
+  firebase_core: ^1.18.0
+  google_fonts: ^3.0.1
+  firebase_performance: ^0.8.0+14
+  firebase_remote_config: ^2.0.9
+  firebase_crashlytics: ^2.8.2
   flutter_fadein: ^2.0.0
   day_night_switcher: ^0.2.0+1
   theme_manager: ^1.0.4
@@ -33,7 +33,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true
