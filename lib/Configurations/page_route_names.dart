@@ -5,4 +5,5 @@ class PageRouteName {
   static const String signUp = '/sign_up';
   static const String forgetPassword = '/forget_password';
   static const String home = '/home';
+  static const String addTrancation = '/add_transaction';
 }

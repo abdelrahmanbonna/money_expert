@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:money_expert/Configurations/configurations.dart';
 import 'package:money_expert/Pages/HomePages/Home/home_viewmodel.dart';
 import 'package:money_expert/Widgets/HomePages/Home/balance_card.dart';
 import 'package:money_expert/Widgets/HomePages/Home/debits_card.dart';
@@ -278,7 +279,7 @@ class HomeView extends HookView<HomeViewModel> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //TODO add a new transaction
+          Navigator.of(context).pushNamed(PageRouteName.addTrancation);
         },
         clipBehavior: Clip.antiAlias,
         backgroundColor: theme.primaryColor,

@@ -24,6 +24,9 @@ class Routes {
       case PageRouteName.home:
         return MaterialPageRoute<dynamic>(
             builder: (_) => const Home(), settings: settings);
+      case PageRouteName.addTrancation:
+        return MaterialPageRoute<dynamic>(
+            builder: (_) => const AddTransaction(), settings: settings);
       default:
         return MaterialPageRoute<dynamic>(
             builder: (_) => const Splash(), settings: settings);
